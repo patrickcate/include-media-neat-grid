@@ -8,6 +8,15 @@ $im-neat-grid-total: map-get($neat-grid, 'columns');
 $im-neat-grid-gutter: map-get($neat-grid, 'gutter');
 $im-neat-grid-breakpoints: length($breakpoints);
 
+@if variable-exists('$breakpoints') == null {
+  @warn 'Make sure you have imported and setup Include Media first.';
+}
+
+@if variable-exists('$neat-grid') == null {
+  @warn 'Make sure you have imported and setup Bourbon Neat 2.0';
+}
+
+// Main grid class mixin.
 @mixin im-neat-grid() {
 
   .#{$im-neat-grid-row-class} {
